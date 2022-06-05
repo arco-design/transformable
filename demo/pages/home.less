@@ -1,0 +1,133 @@
+.top {
+    top: 0;
+}
+.bottom {
+    bottom: 0;
+}
+.left {
+    left: 0;
+}
+.right {
+    right: 0;
+}
+* {
+    user-select: none;
+}
+.flex-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.transform-demo {
+    &-container {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    &-viewport {
+        position: absolute;
+        border: 2px dashed deepskyblue;
+        .flex-center;
+    }
+    &-origin {
+        position: absolute;
+        border: 2px dashed orangered;
+        opacity: 0.5;
+    }
+    &-trans {
+        background-color: darkslategrey;
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)scale(0.8);
+        &.x {
+            &.line {
+                margin: 0;
+                height: 1px;
+                transform-origin: left center;
+            }
+        }
+        &.y {
+            &.line {
+                margin: 0;
+                width: 1px;
+                transform-origin: top center;
+            }
+        }
+    }
+    &-axis {
+        will-change: transform;
+        position: absolute;
+        background-color: darkslategrey;
+        color: white;
+        &.y {
+            width: 1px;
+            top: 0;
+            bottom: 0;
+        }
+        &.x {
+            height: 1px;
+            left: 0;
+            right: 0;
+        }
+    }
+    &-object {
+        position: absolute;
+        border: 2px solid orangered;
+        .flex-center;
+        background-image: linear-gradient(to bottom, rgba(255,236,210, 0.5) 0%, rgba(252,182,159, 0.5) 100%);
+        &.shadow {
+            outline: 10px solid orangered;
+            opacity: 0.5;
+            pointer-events: auto;
+        }
+    }
+    &-text {
+        background-color: orangered;
+        color: white;
+        &.bottom, &.top {
+            position: absolute;
+            width: 100%;
+        }
+        &.center {
+            background-color: transparent;
+            color: orangered;
+            &.blue {
+                color: deepskyblue;
+            }
+            line-height: 1;
+            font-size: 30px;
+            font-weight: bold;
+            border-radius: 50%;
+        }
+    }
+    &-tools {
+        position: absolute;
+        top: 40px;
+        bottom: 40px;
+        left: 20px;
+        right: 20px;
+        .flex-center;
+    }
+    &-btn {
+        width: 50px;
+        height: 30px;
+        position: absolute;
+        z-index: 1000;
+    }
+    &-range {
+        position: absolute;
+        z-index: 1000;
+        width: 50%;
+        &.y {
+            width: 100%;
+            transform-origin: left top;
+            transform: rotate(90deg);
+        }
+    }
+}

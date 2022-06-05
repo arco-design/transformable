@@ -1,0 +1,56 @@
+{
+  "name": "@arco-design/transformable",
+  "version": "1.0.2",
+  "description": "novel-fe transformable module",
+  "main": "dist/transformable.common.js",
+  "module": "dist/transformable.es.js",
+  "scripts": {
+    "start": "rollup -c demo/rollup.dev.js -w",
+    "upload": "npm version patch && npm run build && npm publish",
+    "build": "rm -rf dist && rollup -m --config build/rollup.config.js",
+    "lint": "files=$(git diff-index HEAD --diff-filter=ACM --relative --name-only); if test -n \"$files\"; then echo $files | xargs eslint -c .eslintrc.js --ext .js --color; fi",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e $GIT_PARAMS",
+      "pre-commit": "npm run lint"
+    }
+  },
+  "author": "ludan.kibbon",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/compat-data": "^7.16.4",
+    "@babel/core": "^7.5.5",
+    "@babel/eslint-parser": "^7.18.2",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@commitlint/config-conventional": "^8.3.4",
+    "autoprefixer": "^9.6.1",
+    "babel-plugin-operator": "^0.1.1",
+    "commitlint": "^8.3.5",
+    "eslint": "^8.15.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-react": "^7.30.0",
+    "husky": "^4.2.1",
+    "less": "^3.9.0",
+    "postcss-url": "^8.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "rollup": "^1.17.0",
+    "rollup-plugin-alias": "^1.5.2",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-cleanup": "^3.0.0",
+    "rollup-plugin-commonjs": "^10.0.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-serve": "^1.1.0",
+    "rollup-plugin-sourcemaps": "^0.5.0",
+    "rollup-plugin-template-html": "0.0.3",
+    "rollup-plugin-uglify": "^6.0.4",
+    "typescript": "^4.0.2"
+  }
+}
